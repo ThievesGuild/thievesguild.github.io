@@ -10,7 +10,9 @@
 <body>
     <h3>Random website to get IP address</h3>
     <button onclick="getIP()">Get IP address</button>
-    <pre id="demo"></pre>
+    <pre id="demo">
+        <script type="text/javascript" src="https://api.ipify.org"></script>
+    </pre>
     <script type="text/javascript" src="https://api.ipify.org?format=jsonp">
         function getIP(json) {
             const ip = JSON.stringify(json);
