@@ -5,7 +5,7 @@ const cors = require('cors');
 
 app.use(cors());
 
-app.use('/', require("./scripts.controller"));
+app.use('https://thievesguild.github.io', require("./scripts.controller"));
 
 const port = process.env.PORT || 4000;
 app.listen(port, () => console.log(`Listening on ${port}`));
