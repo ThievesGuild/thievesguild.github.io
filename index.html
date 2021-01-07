@@ -5,17 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Website</title>
+</head>
+
+<body>
+    <h3>Random website to get IP address</h3>
+    <pre id="demo"></pre>
     <script type="application/javascript" src="https://api.ipify.org?format=jsonp">
         function getIP(json) {
             const ip = JSON.stringify(json);
             document.getElementById("demo").innerHTML = ip;
         }
     </script>
-</head>
-
-<body>
-    <h3>Random website to get IP address</h3>
-    <pre id="demo"></pre>
 </body>
 
 </html>
