@@ -33,28 +33,6 @@
             });
         });
     </script>
-    <!--
-    <script>
-        const mainURL = 'https://getipaddress.dev.with-datafire.io';
-        const ipQuery = '/getIP?value=';
-
-        const ipAddress = document.getElementById('IP').value;
-
-        const getIP = () => {
-            const queryValue = ipAddress;
-            const endpoint = `${mainURL}${ipQuery}${queryValue}`;
-            const xhr = new XMLHttpRequest();
-            xhr.responseType = 'text';
-            xhr.onreadystatechange = () => {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    console.log(xhr.response);
-                }
-            }
-            xhr.open('GET', endpoint);
-            xhr.send()
-        }
-    </script>
-    --> 
 </body>
 
 </html>
