@@ -5,15 +5,28 @@
     <meta charset="utf-8">
     <title>JS Bin</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script>
-        $.getJSON("https://api.ipify.org/?format=json", function(e) {
-            alert(e.ip);
-        });
-    </script>
 </head>
 
 <body>
-    
+    <h3>Get IP using API</h3>
+
+    <hr/>
+
+    <div id="IP"></div>
+    <div id="Location"></div>
+
+    <hr/>
+
+    <div>
+        <pre id="raw"></pre>
+    </div>
+
+    <script>
+        $.getJSON("https://api.ipify.org/?format=json", function(response) {
+            $("#IP").html("IP: " + response.ip);
+            $("#raw").html(JSON.stringify(response));
+        });
+    </script>
 </body>
 
 </html>
