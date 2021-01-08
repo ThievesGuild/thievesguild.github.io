@@ -1,13 +1,20 @@
-const express = require('express');
-const app = express();
-
 const mainURL = 'https://getipaddress.dev.with-datafire.io';
+const ipQuery = '/getIP?value=';
 
-var ipAddress = document.getElementById("IP").value;
+const ipAddress = document.getElementById('IP').value;
 
-var queryURL = `/getIP?value=${ipAddress}`;
-var finalURL = `${mainURL}${queryURL}`;
-
-app.get(finalURL, function(req, res) {
-    res.send(console.log("success!"));
-});
+const getIP = () => {
+    const queryValue = ipAddress;
+    const endpoint = `${mainURL}${ipQuery}${queryValue}`;
+    
+    fetch(endpoint, {cache: 'no-cache'}).then(response => {
+      if (response.ok) {
+        return response;
+      }
+      throw new Error('Request failed!');
+    }, networkError => {
+      console.log(networkError.message)
+    }).then((textResponse) => {
+      console.log(textResponse); 
+    })
+  }
