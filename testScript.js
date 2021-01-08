@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-const mainURL = 'http://localhost:4000'
+const mainURL = 'https://getipaddress.dev.with-datafire.io';
 
 var ipAddress = document.getElementById("IP").value;
 
