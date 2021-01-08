@@ -6,7 +6,7 @@ const ipAddress = document.getElementById('IP').value;
 const queryValue = ipAddress;
 const endpoint = `${mainURL}${ipQuery}${queryValue}`;
 
-fetch(endpoint, { cache: 'no-cache' }).then(response => {
+fetch(endpoint).then(response => {
     if (response.ok) {
         return response;
     }
