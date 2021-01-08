@@ -4,19 +4,16 @@
 <head>
     <meta charset="utf-8">
     <title>JS Bin</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        $.getJSON("https://api.ipify.org/?format=json", function(e) {
+            alert(e.ip);
+        });
+    </script>
 </head>
 
 <body>
-    <h3>Client side IP geolocation using <a href="http://ipinfo.io">ipinfo.io</a></h3>
-
-    <hr/>
-        <div id="ip"></div>
-        <div id="address"></div>
-    <hr/>
-    Full response:
-    <pre id="details"></pre>
-
-    <script src="testScript.js"></script>
+    
 </body>
 
 </html>
