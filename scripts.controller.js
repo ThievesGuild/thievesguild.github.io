@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const ipify = require('ipify');
 
-router.get('', getIP);
+router.get('/', getIP);
 
 module.exports = router;
 
