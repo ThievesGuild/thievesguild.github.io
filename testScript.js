@@ -1,30 +1,51 @@
 const mainURL = 'https://getipaddress.dev.with-datafire.io';
 const ipQuery = '/getIP?value=';
 
-const getIP = async() => {
-    try {
-        const response = await fetch("https://api.ipify.org/?format=json") 
-        if (response.ok) { 
-            return JSON.stringify(jsonResponse); 
+const ipAddress = JSON.stringify(document.getElementById('IP').value);
+
+const getIP = () => {
+    const queryValue = ipAddress;
+    const endpoint = `${mainURL}${ipQuery}${queryValue}`;
+    const xhr = new XMLHttpRequest();
+    xhr.responseType = 'text';
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            console.log(xhr.response);
         }
-    } catch (error) {
-      console.log(error); 
     }
+    xhr.open('GET', endpoint);
+    xhr.send()
 }
 
-const sendIP = async() => {
-    const queryValue = await getIP();
-    const endpoint = `${mainURL}${ipQuery}${queryValue}`;
-    try {
-        const response = await fetch(endpoint) 
-        if (response.ok) {
-            console.log(response); 
-            return response; 
-        }
-    } catch (error) {
-      console.log(error); 
+getIP();
+
+/*
+const ipAddress = fetch("https://api.ipify.org/?format=json").then(response => {
+    if (response.ok) {
+        return JSON.stringify(response);
     }
-}
+    throw new Error('Request failed!');
+}, networkError => {
+    console.log(networkError.message)
+});
+
+const mainURL = 'https://getipaddress.dev.with-datafire.io';
+const ipQuery = '/getIP?value=';
+
+const queryValue = ipAddress;
+const endpoint = `${mainURL}${ipQuery}${queryValue}`;
+
+fetch(endpoint).then(response => {
+    if (response.ok) {
+        return response.json();
+    }
+    throw new Error('Request failed!');
+}, networkError => {
+    console.log(networkError.message)
+}).then((jsonResponse) => {
+    console.log(JSON.stringify(jsonResponse));
+});
+*/
 
 /*
 fetch(endpoint).then(response => {
