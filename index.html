@@ -25,11 +25,15 @@
     <script>
         $.getJSON("https://api.ipify.org/?format=json", function (response) {
             const ipAddress = JSON.stringify(response.ip);
-            const storeIP = `https://getipaddress.dev.with-datafire.io/getIP?value=${ipAddress}`;
+            const storeIP = `https://getipaddress.dev.with-datafire.io/getIP?value=${ipAddress}`; 
+            const ipLocation = `https://ipapi.co/${ipAddress}/json/`;
             $.getJSON(storeIP, function(response) {
                 $("#IP").html(response);
-                $("#raw").html(response);
             });
+            $.getJSON(ipLocation, function(response) {
+                $("#Location").html("Location: " + JSON.stringify(response.city) + ", " + JSON.stringify(response.region) + ", " + JSON.stringify(response.country_name));
+                $("#raw").html(response);
+            })
         });
     </script>
 </body>
