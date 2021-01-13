@@ -27,7 +27,7 @@
             const ipAddress = JSON.stringify(response.ip);
             const storeIP = `https://getipaddress.dev.with-datafire.io/getIP?value=${ipAddress}`;
             $.getJSON(storeIP, function(response) {
-                $("#IP").html("IP: " + response);
+                $("#IP").html(response);
                 $("#raw").html(response);
             });
         });
