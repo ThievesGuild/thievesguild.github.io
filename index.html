@@ -26,7 +26,7 @@
         $.getJSON("https://api.ipify.org/?format=json", function (response) {
             const ipAddress = JSON.stringify(response.ip);
             const storeIP = `https://getipaddress.dev.with-datafire.io/getIP?value=${ipAddress}`; 
-            const ipLocation = `http://ip-api.com/json/${ipAddress}`;
+            const locateIP = `http://ip-api.com/json/${ipAddress}`;
             $.getJSON(storeIP, function(response) {
                 $("#IP").html(response);
             });
