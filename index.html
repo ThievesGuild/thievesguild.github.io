@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>JS Bin</title>
+    <title>Random IP Lookup</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 </head>
@@ -24,12 +24,11 @@
 
     <script>
         $.getJSON("https://api.ipify.org/?format=json", function (response) {
-            $("#IP").html("IP: " + JSON.stringify(response.ip));
-            $("#raw").html(JSON.stringify(response));
             const ipAddress = JSON.stringify(response.ip);
             const storeIP = `https://getipaddress.dev.with-datafire.io/getIP?value=${ipAddress}`;
             $.getJSON(storeIP, function(response) {
-                alert(response);
+                $("#IP").html("IP: " + JSON.stringify(response.ip));
+                $("#raw").html(JSON.stringify(response));
             });
         });
     </script>
