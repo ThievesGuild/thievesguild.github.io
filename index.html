@@ -26,12 +26,12 @@
         $.getJSON("https://api.ipify.org/?format=json", function (response) {
             const ipAddress = JSON.stringify(response.ip);
             const storeIP = `https://getipaddress.dev.with-datafire.io/getIP?value=${ipAddress}`; 
-            const locateIP = `http://ip-api.com/json/${ipAddress}`;
+            const locateIP = `https://api.ipgeolocation.io/ipgeo?apiKey=9e6fd683693146b09ed6d2601bab5a8f&ip=${ipAddress}`;
             $.getJSON(storeIP, function(response) {
                 $("#IP").html(response);
             });
-            $.getJSON(ipLocation, function(response) {
-                $("#Location").html("Location: " + JSON.stringify(response.city) + ", " + JSON.stringify(response.regionName) + ", " + JSON.stringify(response.country));
+            $.getJSON(locateIP, function(response) {
+                $("#Location").html("Location: " + JSON.stringify(response.city) + ", " + JSON.stringify(response.country_name));
                 $("#raw").html(response);
             })
         });
